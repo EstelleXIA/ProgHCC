@@ -55,7 +55,7 @@ Inferences for Rad-S, Rad-D, RadCLN-S, and RadCLN-D are all provided.
 Run `python predict.py` with arguments.
 
 |  command  | description |
-| ------------------- | ------------- |
+| ---------------------- | ------------- |
 | `--base_liver`  | base directory for liver |
 | `--base_lung`  | base directory for lung |
 | `--baseline_liver`  | a list of filename of the baseline liver slices |
