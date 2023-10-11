@@ -10,7 +10,7 @@ from torch.utils.data import DataLoader
 from datetime import datetime
 import torchvision.transforms as transforms
 from monai.transforms import RandFlip, NormalizeIntensity, Resize
-from model_submit import *
+from model import *
 import argparse
 
 parser = argparse.ArgumentParser()
