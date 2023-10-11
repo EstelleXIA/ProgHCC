@@ -114,7 +114,7 @@ class SurvivalData(utils.data.Dataset):
 
         time_label = torch.tensor(self.label.loc[patient, "time"])
         event_label = torch.tensor(self.label.loc[patient, "event"])
-
+        
         return liver_imgs, lung_imgs, liver_imgs_followup, lung_imgs_followup, time_label, event_label
 
 
@@ -178,7 +178,10 @@ for epoch in range(max_epochs):
         x_lung_1 = x_lung_1.to(device)
         time = time.to(device)
         event = event.to(device)
-        out = model(x_liver, x_lung, x_liver_1, x_lung_1)
+        if args.model == "Rad-D":
+            out = model(x_liver, x_lung, x_liver_1, x_lung_1)
+        else:
+            out = model(x_liver, x_lung)
 
         risk_tmp.append(out.cpu().detach().squeeze())
         time_tmp.append(time.cpu().detach().squeeze())
@@ -210,7 +213,10 @@ for epoch in range(max_epochs):
                 x_lung_1 = x_lung_1.to(device)
                 time = time.to(device)
                 event = event.to(device)
-                out = model(x_liver, x_lung, x_liver_1, x_lung_1)
+                if args.model == "Rad-D":
+                    out = model(x_liver, x_lung, x_liver_1, x_lung_1)
+                else:
+                    out = model(x_liver, x_lung)
 
                 risk_tmp_val.append(out.cpu().detach().squeeze())
                 time_tmp_val.append(time.cpu().detach().squeeze())
@@ -234,7 +240,10 @@ for epoch in range(max_epochs):
                 x_lung_1 = x_lung_1.to(device)
                 time = time.to(device)
                 event = event.to(device)
-                out = model(x_liver, x_lung, x_liver_1, x_lung_1)
+                if args.model == "Rad-D":
+                    out = model(x_liver, x_lung, x_liver_1, x_lung_1)
+                else:
+                    out = model(x_liver, x_lung)
 
                 risk_tmp_test.append(out.cpu().detach().squeeze())
                 time_tmp_test.append(time.cpu().detach().squeeze())
