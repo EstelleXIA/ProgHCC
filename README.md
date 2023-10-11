@@ -45,5 +45,31 @@ python train.py --base YOUR/WORKING/PATH --label os_info.csv --splits dataset_sp
 | `--max_epoch`  | maximum training epoch |
 | `--lr`  | learning rate |
 
+## Make predictions
+Inferences for Rad-S, Rad-D, RadCLN-S, and RadCLN-D are all provided.
+- Rad-S: A deep learning model without follow-up scans and the RNN layers. It only used EfficientNet-b0 to extract features from baseline images then predict the prognostic risk.
+- RadCLN-S: A multi-modal model that combines the risk score from CLN and Rad-S then fed into the Cox model to get the risk score.
+- Rad-D: A deep learning model that used both CNN and RNN to extract spatial-temporal information.
+- RadCLN-D: A multi-modal model that combines the risk score from CLN and Rad-D then fed into the Cox model to get the risk score.
+
+Run `python predict.py` with arguments.
+
+|  command  | description |
+| ------------------- | ------------- |
+| `--base_liver`  | base directory for liver |
+| `--base_lung`  | base directory for lung |
+| `--baseline_liver`  | a list of filename of the baseline liver slices |
+| `--baseline_lung`  | a list of filename of the baseline lung slices |
+| `--followup_liver`  | a list of filename of the followup liver slices |
+| `--followup_lung`  | a list of filename of the followup lung slices |
+| `--model`  | Rad-D or Rad-S |
+| `--Differentiation`  | Histological type, 0 for high differentiation, 1 for moderately differentiation, 2 for low differentiation, and 3 for undifferentiation |
+| `--NASH`  | non-alcoholic steatohepatitis or non-alcoholic steatohepatitis, 0 for no, and 1 for yes |
+| `--Surgery`  | 0 for no, and 1 for yes |
+| `--PVT`  | partial or complete portal vein tumor thrombosis, 0 for no, and 1 for yes |
+| `--EBRT`  | external beam radiation therapy, 0 for no, and 1 for yes |
+| `--TACE`  | transarterial embolization or transarterial chemoembolization, 0 for no, and 1 for yes |
+| `--RFAMWA`  | radiofrequency ablation or microwave ablation, 0 for no, and 1 for yes |
+
 ## Contact
 If you have any question, please contact this [Email](mailto:Estelle-xyj@sjtu.edu.cn).
