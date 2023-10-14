@@ -44,7 +44,7 @@ python train.py --base YOUR/WORKING/PATH --label os_info.csv --splits dataset_sp
 | `--max_epoch`  | maximum training epoch |
 | `--lr`  | learning rate |
 
-## Make predictions
+### Make predictions
 Inferences for Rad-S, Rad-D, RadCLN-S, and RadCLN-D are all provided.
 - Rad-S: A deep learning model without follow-up scans and the RNN layers. It only used EfficientNet-b0 to extract features from baseline images then predict the prognostic risk.
 - RadCLN-S: A multi-modal model that combines the risk score from CLN and Rad-S then fed into the Cox model to get the risk score.
