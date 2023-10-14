@@ -52,7 +52,7 @@ Inferences for Rad-S, Rad-D, RadCLN-S, and RadCLN-D are all provided.
 - RadCLN-D: A multi-modal model that combines the risk score from CLN and Rad-D then fed into the Cox model to get the risk score.
 
 The pretrained checkpoints can be downloaded from the release.
-|  command  | description |
+|  name | description |
 | ------------------- | ------------- |
 | rad-D-pretrained.pth  | pretrained model for the Rad-D (CRNN) |
 | rad-S-pretrained.pth  | pretraiend model for the Rad-S (CNN) |
